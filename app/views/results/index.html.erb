@@ -1,0 +1,53 @@
+<%content_for :head do-%>
+<%end-%>
+<%=stylesheet_link_tag("results")%>
+<h1>Results</h1><hr> 
+<div class='results_height'>
+<div class='results_menu'>
+The second US cruise left port 15 January 2010 aboard the Thompson.
+Follow the <a href="cruise3/US2-Path.kmz">cruise track</a> via <a href="http://earth.google.com/">Google Earth</a> or take a look at the <a href="cruise3/DIMES_US2_3_01_2010.jpg">map</a>.
+<ul> 
+<li>Sadly, Captain Philip Smith passed away on Tuesday, January 18.  
+The ship returned to Punta Arenas, arriving Friday January 22nd, and
+started out again January 25th.  See the 
+<a href="cruise3/philip_smith.html">Seattle 
+Times obituary.</a>  (updated 28 January 2010).</li> 
+<!---Update:  Sadly, the ship's captain died overnight, and the ship is returning
+to Punta Arenas, expecting to arrive on Thursday.  They plan to head back
+out on Friday, 22 January.  (19 January 2010).</li>---> 
+<li><%=link_to_remote "Progress report (25 January 2010)", :update=>'results_content', :url=>{:action=>'report_20100125'}%></li> 
+<li><%=link_to_remote "Who is on the ship? (26 January 2010)", :update=>'results_content', :url=>{:action=>'report_20100126'}%></li> 
+<li><%=link_to_remote "Progress report (4 February 2010)", :update=>'results_content', :url=>{:action=>'report_20100204'}%></li> 
+<li><%=link_to_remote "Progress report (18 February 2010)", :update=>'results_content', :url=>{:action=>'report_20100218'}%></li> 
+<li><%=link_to_remote "Final report (3 March 2010)", :update=>'results_content', :url=>{:action=>'report_20100303'}%> or <a href="cruise3/Update_03Mar10_u.pdf">pdf</a> version. </li> 
+</ul> 
+ 
+The first UK cruise left port 5 December 2009.  Here are their updates.
+<ul> 
+<li><a href="cruise2/JC41_outline.pdf">Cruise plan (pdf).</a></li> 
+<li><a href="cruise2/JC41_progress_6Dec09.pdf">Progress report (6 December 2009)</a></li> 
+<li><a href="cruise2/JC41_progress_11Dec09.pdf">Progress report (11 December 2009)</a></li> 
+<li><a href="cruise2/JC41_progress_20Dec09.pdf">Progress report (20 December 2009)</a></li> 
+</ul> 
+The first US cruise left port on January 10 and returned February 24, 2009.  
+Here are the regular updates that were sent from the ship.<br> 
+<ul> 
+<li><a href="cruise1/intro.htm">Introduction</a></li> 
+<li><a href="cruise1/web/dimes_folks.htm">Who is on the ship?</a></li> 
+<li><a href="cruise1/prog_011509/ProgressReport_15Jan09.htm">Progress Report (15 January 2009)</a></li> 
+<li><a href="cruise1/prog_011709/ProgressReport_17Jan09.htm">Progress Report (17 January 2009)</a></li> 
+<li><a href="cruise1/prog_012009/ProgressReport_20Jan09.htm">Progress Report (20 January 2009)</a></li> 
+<li><a href="cruise1/prog_012209/ProgRep_22Jan09.html">Progress Report (22 January 2009)</a></li> 
+<li><a href="cruise1/ProgRep_29Jan09.html">Progress Report (29 January 2009)</a></li> 
+<li><a href="cruise1/ProgRep_01Feb09.html">Progress Report (1 February 2009)</a></li> 
+<li><a href="cruise1/ProgRep_04Feb09.html">Progress Report (4 February 2009)</a></li> 
+<li><a href="cruise1/ProgRep_06Feb09.html">Progress Report (6 February 2009)</a></li> 
+<!---<li>Update:  Due to a medical emergency, the Revelle is returning to Punta Arenas.  Because of the ship's heading and antenna location, they expect to be out of e-mail contact for the next 4 days.  (25 January 2009)</li>---> 
+<li><a href="cruise1/Ch_Sci_Journal_v8.html">Chief Scientist Jim Ledwell's daily journal (updated as of 19 February 2009)</a></li> 
+<li><a href="cruise1/Summary_22Feb09.ppt">End of cruise preliminary summary (23 February 2009)</a> (Read the notes for details; a more complete summary should
+follow.)</a></li> 
+</div>
+<div id='results_content'>
+<%= render :partial=>'none', :update=>'results_content'%>
+</div>
+</div>

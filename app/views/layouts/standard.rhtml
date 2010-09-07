@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DIMES | DIAPYCNAL AND ISOPYCNAL MIXING IN THE SOUTHERN OCEAN</title>
+<%= javascript_include_tag 'prototype' %>
+<%=stylesheet_link_tag 'main'%>
+</head>
+<body>
+<div class="centering">
+	<%=render :partial => 'layouts/dimes_header'%>
+	<div class="content">
+		<%=yield%>
+	</div>
+	<div id='divider'></div>
+</div>
+	<%=render :partial => 'layouts/dimes_footer'%>
+</body>
+</html>

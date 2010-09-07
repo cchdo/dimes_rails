@@ -1,0 +1,23 @@
+.column {
+	position: relative;
+	width: 499px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	float: left;
+}
+.clear {
+	clear:left;
+}
+td {
+	vertical-align: top;
+}
+.half td {
+	text-align: left;
+	width: 200px;
+}
+.thirds td {
+	width: 332px;
+	padding-bottom: 13px;
+	padding-right: 13px;
+} 

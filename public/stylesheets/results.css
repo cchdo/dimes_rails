@@ -1,0 +1,26 @@
+.results_menu {
+	float: left;
+	border: 0;
+	margin: 0;
+	padding: 10px;
+	width: 300px;
+	height: 650px;
+	background-color: #e8ebec;
+	word-wrap: break-word;
+	overflow-y: auto;
+}
+#results_content {
+	float: left;
+	border: 0;
+	margin: 0;
+	margin-left: 10px;
+	padding:10;
+	width: 660px;
+	height: 670px;
+}
+.results_height {
+	border: 0;
+	margin: 0;
+	padding:0;
+	height: 670px;
+}
