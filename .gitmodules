@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/authlogic"]
 	path = vendor/plugins/authlogic
 	url = git://github.com/binarylogic/authlogic.git
+[submodule "vendor/plugins/attachment_fu"]
+	path = vendor/plugins/attachment_fu
+	url = http://github.com/technoweenie/attachment_fu.git

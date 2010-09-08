@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907233841) do
+ActiveRecord::Schema.define(:version => 20100908192850) do
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.boolean  "public",       :default => false, :null => false
+    t.integer  "size",                            :null => false
+    t.string   "filename",                        :null => false
+    t.string   "content_type",                    :null => false
+    t.datetime "created_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string "login",             :null => false

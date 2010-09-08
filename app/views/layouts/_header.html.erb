@@ -1,0 +1,28 @@
+<div class='top_name'>
+Diapycnal and Isopycnal Mixing in the Southern Ocean
+</div>
+<a href="home"><div class='banner'>
+</div></a>
+<div class='menu'>
+<table width='750' align='center'>
+<tr>
+<% items = [
+  ['Home', root_path],
+  ['Components', {:controller => :components}],
+  ['Fieldwork', {:controller => :fieldwork}],
+  ['Results', {:controller => :results}],
+  ['Publications', {:controller => :publications}],
+  ['People', {:controller => :people}],
+] %>
+<%= items.map {|x|
+  content_tag(:td, link_to(x[0], x[1]), :width => (100 / items.length))
+}.join(content_tag(:td, '|')) %>
+</tr>
+</table>
+</div>
+<% if u = current_user() %>
+<div class='session'>
+    Welcome <%= h u.login %>
+    <%= link_to('Log out', {:controller => :user_sessions, :action => :destroy}, :method => :delete) %>
+</div>
+<% end %>

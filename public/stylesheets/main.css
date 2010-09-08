@@ -19,8 +19,9 @@ img {
 	border-bottom: 1px solid #086f87;
 	color: white;
 	font-family: verdana, sans-serif;
-	font-size: large;
-	font-variant: small-caps;
+    font-size: 0.9em;
+	text-transform: uppercase;
+    line-height: 25px;
 }
 .banner {
 	height: 100px;
@@ -91,7 +92,17 @@ img {
 	padding-right: 10px;
 	float: left;
 }
+.session {
+    background-color: #a6b4bb;
+    text-align: right;
+    padding: 0.2em;
+    height: 1.5em;
+    line-height: 1.5em;
+	border-top: 1px solid #086f87;
+	border-bottom: 1px solid #086f87;
+}
 #divider {
+    clear: both;
 	height: 30px;
 	background-color: #a6b4bb;
 	border-top: 1px solid #086f87;
