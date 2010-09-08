@@ -5,15 +5,17 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 <title>DIMES | Diapycnal and Isopycnal Mixing in the Southern Ocean</title>
 <%=stylesheet_link_tag 'main'%>
+<%= yield :head -%>
 </head>
 <body>
 <div class="centering">
-	<%=render :partial => 'layouts/header'%>
+	<%=render :partial => 'layouts/header'-%>
 	<div class="content">
-		<%=yield%>
+		<%=yield-%>
 	</div>
 	<div id='divider'></div>
 </div>
-<%=render :partial => 'layouts/footer'%>
+<%=render :partial => 'layouts/footer'-%>
+<% yield :scripts -%>
 </body>
 </html>
