@@ -2,25 +2,57 @@
 	float: left;
 	border: 0;
 	margin: 0;
-	padding: 10px;
-	width: 300px;
-	height: 650px;
-	background-color: #e8ebec;
+	width: 320px;
+	height: 500px;
 	word-wrap: break-word;
 	overflow-y: auto;
+}
+.results_menu h3 {
+	background-color: #cde7ff;
+	color: #086F87;
+	margin: 0px 0px;
+	padding: 0px;
+	padding-top: 2px;
+	padding-left: 2px;
+	border: 0px;
+	border-bottom: 2px solid #086F87;
+}
+#results_content h2 {
+	margin: 0px 0px;
+}
+#results_content h4{
+	color: #086F87;
+	margin: 26px 0px 5px 0px;
+	padding: 0px;
+	padding-top: 2px;
+	padding-left: 2px;
+	border: 0px;
+	border-bottom: 2px solid #086F87;
 }
 #results_content {
 	float: left;
 	border: 0;
-	margin: 0;
-	margin-left: 10px;
-	padding:10;
-	width: 660px;
-	height: 670px;
+	margin: 0 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 658px;
+	height: 500px;
+	overflow-y: auto;
+	word-wrap: break-word;
 }
 .results_height {
 	border: 0;
 	margin: 0;
 	padding:0;
-	height: 670px;
+	height: 500px;
+}
+.participants {
+	margin-left:auto;
+	margin-right:auto;
+}
+.cruiseimg {
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
