@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20100908192850) do
     t.integer  "user_id"
     t.text     "description"
     t.boolean  "public",       :default => false, :null => false
+    t.string   "directory",    :default => "/",   :null => false
     t.integer  "size",                            :null => false
     t.string   "filename",                        :null => false
     t.string   "content_type",                    :null => false

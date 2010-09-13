@@ -4,6 +4,7 @@ class CreateUploads < ActiveRecord::Migration
       t.references :user
       t.text :description
       t.boolean :public, :default => false, :null => false
+      t.string :directory, :default => '/', :null => false
       t.integer :size, :null => false
       t.string :filename, :null => false
       t.string :content_type, :null => false

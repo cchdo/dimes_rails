@@ -1,6 +1,6 @@
 <h1>New upload</h1>
 
-<% form_for(@upload) do |f| %>
+<% form_for(@upload, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -11,7 +11,7 @@
     <%= f.label :public %> <%= f.check_box :public %>
   </p>
   <p>
-    <%= f.label :upload_data, 'Data file' %> <%= f.file_field :upload_data %>
+    <%= f.label :uploaded_data, 'Data file' %> <%= f.file_field :uploaded_data %>
   </p>
   <p>
     <%= f.submit 'Create' %>

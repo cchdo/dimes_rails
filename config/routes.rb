@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :home
 
-  map.resources :uploads
+  map.resources :uploads do |uploads|
+      uploads.get 'download', :on => :member, :controller => :uploads, :action => :download
+  end
 
   map.resource :user_session
   map.login 'login', :controller => :user_sessions, :action => :new
