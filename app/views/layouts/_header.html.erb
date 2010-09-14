@@ -11,6 +11,7 @@ items = [
   ['Results', {:controller => :results}],
   ['Publications', {:controller => :publications}],
   ['People', {:controller => :people}],
+  ['Files', uploads_path]
 ]
 items.map {|x|
   content_tag(:td, link_to(x[0], x[1]), :width => (100 / items.length))
