@@ -2,6 +2,10 @@ class ResultsController < ApplicationController
   layout 'standard'
   def index
   end
+
+  def philip_smith_obituary
+    render :partial=> "philip_smith_obituary"
+  end
   
   def report_20100125
     render :partial=> "report_20100125"
