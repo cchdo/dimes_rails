@@ -1,3 +1,6 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag 'uploads' -%>
+<% end -%>
 <h1>File Listing</h1>
 
 <%
@@ -44,7 +47,7 @@ end
     <% unless shown.include?(child_dir) -%>
       <% shown << child_dir -%>
       <tr>
-        <td><%= link_to(h(child_dir), :cd => child_dir) %></td>
+        <td><%= link_to(h(child_dir), {:cd => child_dir}, {:class => :directory}) %></td>
       </tr>
     <% end -%>
   <% end -%>
