@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :home
 
+  map.outreach_0 'outreach/DIMES_article_CB_30_June', :controller => :pages, :action => :outreach_0
+
   map.resources :uploads do |uploads|
       uploads.get 'download', :on => :member, :controller => :uploads, :action => :download
   end
