@@ -1,0 +1,261 @@
+<% content_for :head do %>
+<style type="text/css">
+.cap { font-style: italic; font-size: 0.8em; }
+table.outreach {
+    width: 100%;
+    border: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+}
+.outreach th { border-bottom: 1px solid #ddd; }
+.outreach tr { vertical-align: top; }
+.outreach td { padding: 0.7em; }
+</style>
+<% end -%>
+<h1>Measuring Ocean Mixing</h1> 
+
+<% cf3sf5 = 'CF<sub>3</sub>SF<sub>5</sub>' %>
+
+<p>Starting around Christmas 2008, scientists on a research vessel will release
+a patch of the chemical <%= cf3sf5 %> &ndash;a &lsquo;tracer&rsquo;&mdash;into
+a layer of water 1300 meters below the surface of the Southern Ocean. They plan
+to follow the tracer patch for at least the next three years. The Antarctic
+Circumpolar Current (ACC) will carry it eastward through Drake Passage, but it
+will behave somewhat as cream does as it is stirred into coffee, not like a
+neat package moving in a straight line. It&rsquo;s precisely this messiness
+that interests the scientists participating in the Diapycnal and Isopycnal
+Mixing Experiment in the Southern Ocean (DIMES). This international effort,
+whose principal investigators include BAS&rsquo; Mike Meredith and Emily
+Shuckburgh, will enormously increase our knowledge of the Southern
+Ocean&rsquo;s powerful and complicated circulation and its disproportionate
+influence on the world&rsquo;s climate.</p>
+
+<%= captioned_image('/outreach/DIMES_article_CB_30_June_html_m1fa638fe.jpg', 'A tracer release sled returning to the <i>James Clark Ross</i> at the start of a 1996 tracer-release experiment in the Greenland Sea. (University of East Anglia)', :width => 504, :height => 379) %>
+
+<p>Repeatedly analysing seawater &lsquo;downstream&rsquo; from the release site
+will show scientists the distribution of the tracer patch after it has spent
+one, two, and three years tumbling around in the three-dimensional structure of
+the ACC. During this time, it will pass over both the smooth bottom of the
+Southeast Pacific and the much rougher topography of Drake Passage and the
+Scotia Sea. <%= cf3sf5 %> makes a good tracer because it has no effect on the
+marine environment, yet can be detected in tiny quantities, and because it does
+not occur naturally in seawater scientists can be sure they put it there.</p>
+
+<%= captioned_image('/outreach/DIMES_article_CB_30_June_html_m6f1bbb1b.jpg', 'An Argo float being deployed (National Oceanography Centre, Southampton).', :width => 420, :height => 300) %>
+
+<p>An array of measurements by other instruments will supplement what the
+tracer patch reveals. Above is a float similar to the 150 or so that DIMES will
+deploy at the same depth as the tracer. These will be tracked acoustically
+using sound sources, the first such use of floats in the ACC. Different floats
+with different jobs will be launched at different points in the project; they
+are enumerated in the table below.</p>
+
+<%= captioned_image('/outreach/DIMES_article_CB_30_June_html_m1c693c0a.png', 'A shearmeter being deployed during the Guiana Abyssal Gyre Experiment, 2001 (Tim Duda)', :width => 233, :height => 312) %>
+
+<p>As they travel, some floats will measure conductivity (from which we can
+derive salinity), temperature, and depth (CTD). EM-APEX floats, which will
+regularly rise to the surface after being released at the level of the tracer
+patch, can take measurements of ocean current shear as well as CTD. (These
+sorts of floats proved their value in 2004, when they were dropped in front of
+Hurricane Frances and yielded unprecedented data on the enormous forces at work
+there.) In contrast, other instruments, such as a mooring cluster in Drake
+Passage, will provide detailed time series information on the processes
+responsible for the mixing of the tracer.</p>
+
+<%= captioned_image('/outreach/DIMES_article_CB_30_June_html_72b2ba33.jpg', 'Deploying a deep-ocean microstructure profiler in the Southern Ocean (National Oceanography Centre, Southampton).', :width => 394, :height => 525) %>
+
+<p>The UK&rsquo;s new deep-ocean microstructure profiler was tested in the
+field in 2007 (shown here)&mdash;a milestone, as scientists have very few such
+measurements of turbulence in the ocean&rsquo;s interior.</p>
+
+<table class="outreach">
+    <tr>
+      <th>Name</th>
+      <th>How many</th>
+      <th>Where</th>
+      <th>What they measure and how</th>
+    </tr>
+    <tr>
+      <td>Tracer patch</td>
+      <td>12 streaks of ~40 kg each</td>
+      <td>Released in the SE Pacific, will end up in the Scotia Sea after
+          around three years in the ACC</td>
+      <td>Levels of tracer in sampled
+          seawater will show its distribution 1,
+          2, and 3 years after release, allowing calculations of isopycnal
+          and diapycnal mixing.
+      </td>
+    </tr>
+    <tr>
+      <td>Isopycnal-following floats</td>
+      <td>150</td>
+      <td>Half deployed with the tracer and the other half at same depth 1 year later</td>
+      <td>The floats will be acoustically tracked, with their trajectories
+          showing patterns of isopycnal dispersion in the ACC. Fifteen will
+          take CTD measurements, allowing them to actively track isopycnal
+          surfaces, and these will also surface after 3-4 months.
+      </td>
+    </tr>
+    <tr>
+      <td>EM-APEX floats</td>
+      <td>15</td>
+      <td>Some in SE Pacific, some in Drake Passage; rise and fall every 2 days taking profiles</td>
+      <td>On surfacing, each float transmits its location, then profile data,
+          to satellites. Profiles add to finestructure data: temperature,
+          conductivity, depth, and velocity over a depth of 1500 meters.
+      </td>
+    </tr>
+    <tr>
+      <td>Shearmeter floats</td>
+      <td>8</td>
+      <td>Drift with the tracer patch</td>
+      <td>Vanes at both ends of each instrument spins it and creates torque,
+          which it measures, giving data on the speed and direction of moving
+          water masses. These floats will also be acoustically tracked.
+      </td>
+    </tr>
+    <tr>
+      <td>Deep-ocean microstructure profile</td>
+      <td>3 (1 UK-owned), deployed several times each summer</td>
+      <td>Summer cruise locations, including near the mooring cluster</td>
+      <td>Take profiles of temperature and velocity to a resolution of 1 cm,
+          free-falling to a level scientists determine by weighing down its
+          nose, then dropping the weights and rising again. This data will
+          allow estimates of diapycnal diffusivity.
+      </td>
+    </tr>
+    <tr>
+      <td>Mooring cluster</td>
+      <td>An array of five groups of instruments</td>
+      <td>Drake Passage</td>
+      <td>ADCP, current meters, and profilers will help investigate the
+          interactions of eddies and internal waves over complex bottom
+          topography. Some instruments take profiles from the ocean floor to
+          200m above it.
+      </td>
+    </tr>
+</table>
+
+<p>Table 1.
+Some of the innovative technology DIMES investigators will deploy in the
+Southern Ocean. In addition to these techniques, they will also employ more
+conventional oceanographic methods, including hydrographic and velocity
+profiling from research vessels, high-resolution numerical modelling, and the
+use of satellite altimeters.</p>
+
+<h2>What kilograms of tracer and scores of floats can accomplish</h2>
+
+<p>All these instruments represent an investment too big for one institution or
+even one country to make. Over the next four austral summers the UK will lead
+three research cruises and the US four. Besides BAS, the National Oceanography
+Centre, the University of East Anglia, and the Scottish Association for Marine
+Science are involved, along with four US institutions (Florida State
+University, the University of California at San Diego, the Woods Hole
+Oceanographic Institution, and the University of Washington). Yet the point,
+according to BAS&rsquo; Mike Meredith, is not to &lsquo;vastly amplify the data
+archives&mdash;it&rsquo;s to address some of the major unknowns, by targeting
+specific, poorly understood processes. If it works, it will really change the
+way we think about the Southern Ocean and in turn the world ocean
+circulation.&rsquo;</p>
+
+<p>Ultimately, data from DIMES will improve our understanding of ocean
+mixing&mdash;and of how best to represent that mixing in the computer climate
+models we use to predict the Earth system&rsquo;s response to change. To
+understand how, it helps to place the project within a decades-long series of
+improvements to climate models. As recently as the 1980s, most models
+represented the ocean as a &lsquo;slab&rsquo; that exchanged water with the
+rest of the Earth system but did not circulate. Only a few of the best models
+could reproduce the work the ocean does in transporting heat between the
+equator and the poles and exchanging heat and water with the atmosphere. 
+</p>
+
+<p>More powerful computers and a fuller knowledge of global ocean circulation
+have made for rapid advances. A typical &lsquo;coupled&rsquo; atmosphere-ocean
+global climate model, the UK Hadley Centre&rsquo;s HadCM3, includes 20 vertical
+layers in its ocean. They also can represent the climate system at higher
+horizontal resolution (1.25 degree each of latitude and longitude for HadCM3)
+&ndash; and progress is continually being made.</p>
+
+<p>As a result, models have become better at describing processes like the
+meridional overturning circulation (MOC) of the world ocean, one of the
+fundamental determinants of the planet&rsquo;s climate. They still, however,
+can only approximate rather than precisely reproduce eddies in the
+ocean&mdash;the rough equivalent of atmospheric weather systems. Ocean eddies
+come with diameters in the tens of kilometres, as compared with hundreds or
+thousands for their counterparts in the atmosphere. Compared with huge jets
+like the ACC, eddies&rsquo; contribution to ocean circulation might seem like
+the equivalent of pocket change, but DIMES scientists have reason to believe
+they matter much more than that, and indeed that we cannot fully understand the
+Southern Ocean limb of the MOC without understanding eddies. The connection
+takes a little explaining.</p>
+
+<p>Like the North Atlantic, the Southern Ocean plays a pivotal role in the MOC
+as the site of overturning of surface and abyssal waters. Water masses formed
+in the North Atlantic, having travelled south through the deep ocean, rise
+above the denser Antarctic Bottom Water, and then are returned northward both
+near the surface and also far below:</p>
+
+<%= captioned_image('/outreach/DIMES_article_CB_30_June_html_4f6f149c.png', 'Schematic of the present paradigm of the Souther Ocean limb of MOC. The isopycnal upwelling of Upper and Lower Cirumpolar Deep Water (UCDW and LCDW, with sources in the North Atlantic) is supported by mean geostrophic mass fluxes below the level of topographic obstacles to the ACC and by mesoscale eddy-driven mass fluxes at mid-depth. The upwelled water changes density through air-sea-ice interaction. It then returns northward in the wind-driven Ekman layer to form Antarctic Intermediate Water (AAIW), and as Antarctic Bottom Water (AABW) in mean geostrophic flows.', :width => 430, :height => 208) %>
+
+<p>Between coloured zones in the figure lie what oceanographers call
+&lsquo;surfaces&rsquo; of constant density, or isopycnals. Upwelling tends to
+occur along isopycnals, and this vertical motion is believed to be key in
+closing the ocean&rsquo;s overturning circulation.</p>
+
+<p>Significantly, however, the Southern Ocean&rsquo;s version of overturning
+looks completely different from the North Atlantic&rsquo;s, above all because
+of the ACC. At the latitude of Drake Passage, the ACC circles the planet
+uninterrupted, thus uniquely connecting the Atlantic, Pacific, and Indian
+oceans with each other. According to Dr. Alberto Naveira Garabato of the
+National Oceanography Centre in Southampton, the lead UK investigator for
+DIMES, &lsquo;The ACC makes the physics of the Southern Ocean different from
+anywhere else, and also harder to understand.&rsquo;</p>
+
+<p>The steeply &lsquo;tilted&rsquo; isopycnals of the ACC contain potential
+energy that can be released by eddies. These form as a consequence of the
+instabilities in any jet on a rotating planet. Oceanographers think their
+action in the Southern Ocean, combined with the wind-driven circulation shown
+in the figure above, produces the meridional (north-south) transport of water,
+salt, and heat.  </p>
+
+<p>At well as studying upwelling, scientists have to consider the other
+daunting technical term in DIMES&rsquo; name: diapycnal. While isopycnal mixing
+involves movement <em>along</em> isopycnals (upwelling, for instance), diapycnal
+processes mix water <em>across</em> isopycnals.  This can happen through
+mechanisms that involve eddies and also internal waves&mdash;vertical or
+horizontal waves in the interior, rather than on the surface, of the ocean. In
+the ACC, diapycnal mixing effectively &lsquo;relaxes&rsquo; the tilting
+isopycnals and counteracts the meridional fluxes necessary for Southern Ocean
+overturning. So getting the balance between the two types of mixing
+right in climate models matters for more than academic reasons.</p>
+
+<p>Understanding how they set the rate and structure of the overturning will
+allow us to build models that can better predict the ocean circulation&rsquo;s
+response to atmospheric climate change, and the resulting feedbacks from the
+ocean to the atmosphere.</p>
+
+<p>One aim of the research &ldquo;cruises&rdquo; (if the word really applies to
+people working in shifts around the clock in some of the roughest ocean on
+earth) is to test what scientists call &lsquo;the null hypothesis&rsquo;: in
+this case, &lsquo;that there is insufficient mixing at mid depth in the
+Southern Ocean, where mixing ought to be enhanced over most places in the
+ocean, to affect the global MOC significantly,&rsquo; as Dr Naveira Garabato
+put it.</p>
+
+<p>Indirect measures of how this part of the Southern Ocean behaves have given
+intriguing hints that diapycnal mixing plays a larger role than has been
+assumed, especially in areas with rough bottom topography. Only a comprehensive
+set of direct observations, historically sparse in such a remote and
+inhospitable part of the ocean, can take modelling of the ACC and overturning
+circulation a step further. In turn, inverse modelling&mdash;using the data to
+infer the patterns of circulation that produced those results&mdash;will form
+an essential component of DIMES in interpreting those observations. The
+combination of observational techniques, modelling and theoretical
+considerations gives DIMES a chance to fundamentally improve our concepts of
+how the Southern Ocean works, and why it is so important for planetary climate
+as a whole.</p>
+
+<% url = "http://www.whoi.edu/instruments/viewInstrument.do?id=1061" -%>
+<%= content_tag(:p, link_to(url, url)) %>
+<% url = "http://www.whoi.edu/page.do?pid=11719" -%>
+<%= content_tag(:p, link_to(url, url)) %>

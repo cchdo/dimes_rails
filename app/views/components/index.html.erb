@@ -1,3 +1,8 @@
+<% content_for :head do %>
+<style type="text/css">
+table.modeling td { vertical-align: top; padding: 0.5em; }
+</style>
+<% end -%>
 <h1>Components</h1>
 <hr />
 DIMES is composed of a number of different activities, summarized here:
@@ -19,11 +24,18 @@ posted pending permission from PIs.)--->
 <li><a href="documents/Ferrarietal.pdf"><b><%=image_tag 'pdf.jpg', :height=>'13'%> US Float Supplement Proposal (Ferrari, Marshall, Speer)</b></a></li> 
 </ul><br />
 For more information, check out
-<a href="outreach/DIMES_article_CB_30_June.html">this article</a> 
+<%= link_to('this article', outreach_0_path) %>
 written by Catherine Brewster during her visit to the British
 Antarctic Survey.<br>
 <h2>Modeling</h2>
-<table> 
+
+<p>DIMES involves numerical models of all scales, both to help with planning
+experiment design and data analysis, and also with an aim to eventually
+improving models used for climate simulations. Here's a summary of current
+projects, some funded through DIMES and some independently supported. (Web
+sites and e-mail addresses are listed as points of contact.) </p>
+
+<table class="modeling">
   <tbody> 
     <tr> 
       <td>OCCAM Analysis<br></td> 
