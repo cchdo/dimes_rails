@@ -98,15 +98,15 @@ class UploadsController < ApplicationController
 
   # DELETE /uploads/1
   # DELETE /uploads/1.xml
-  def destroy
-    @upload = Upload.find(params[:id])
-    @upload.destroy
+  # def destroy
+  #   @upload = Upload.find(params[:id])
+  #   @upload.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(uploads_url) }
-      format.xml  { head :ok }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to(uploads_url) }
+  #     format.xml  { head :ok }
+  #   end
+  # end
 
   def download
       file = Upload.find(params[:upload_id])

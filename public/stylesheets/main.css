@@ -61,8 +61,8 @@ img {
 	padding: 13px;
 }
 .content a{
-        color:#25a0c6;
-        text-decoration:none;
+  color:#25a0c6;
+  text-decoration:none;
 }
 .content a:hover {
         color:#cde7ff;
@@ -121,4 +121,8 @@ hr {
 	margin-left: auto;
 	margin-top: 3px;
 	margin-bottom: 10px;
+}
+table.files {
+  width: 100%;
+  text-align: left;
 }
