@@ -83,4 +83,8 @@ class ResultsController < ApplicationController
     render :partial=> "report_20090219"
   end
 
+  def us_3_photo
+    render :partial=> "us_3_photo"
+  end
+
 end
