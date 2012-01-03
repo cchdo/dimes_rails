@@ -1,1 +1,8 @@
 .directory { font-weight: bold !important; text-decoration: underline !important; }
+.log_in_invite {
+  border: 1px solid #EEEECC;
+  border-left: 0;
+  border-right: 0;
+  padding: 0.5em;
+  background: #FFFFCC;
+}

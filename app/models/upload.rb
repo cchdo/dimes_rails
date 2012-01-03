@@ -6,6 +6,6 @@ class Upload < ActiveRecord::Base
     belongs_to :user
 
     has_attachment :storage => :file_system,
-                   :partition => false,
+                   :partition => true,
                    :path_prefix => 'datafiles'
 end

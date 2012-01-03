@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   layout 'standard'
 
-  before_filter :require_user
+  before_filter :require_user, :except => [:index]
 
   # GET /uploads
   # GET /uploads.xml
@@ -24,7 +24,12 @@ class UploadsController < ApplicationController
         params[:cd] = ''
     end
 
-    @uploads = Upload.all(:conditions => ['`directory` LIKE ? AND `public`=1',
+    publicness = ' AND `public`=1'
+    if current_user
+        publicness = ''
+    end
+
+    @uploads = Upload.all(:conditions => ['`directory` LIKE ?' + publicness,
                                           session_directory() + '%'],
                           :order => :directory)
 

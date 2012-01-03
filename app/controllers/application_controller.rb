@@ -38,7 +38,12 @@ class ApplicationController < ActionController::Base
     end
     
     def store_location
-      session[:return_to] = request.request_uri
+      if request.request_uri == login_url
+        # sic referrer
+        session[:return_to] = request.referer
+      else
+        session[:return_to] = request.request_uri
+      end
     end
     
     def redirect_back_or_default(default)
