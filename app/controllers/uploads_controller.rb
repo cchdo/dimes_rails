@@ -69,6 +69,9 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.xml
   def create
+    unless _allowed_to_edit
+      render :text => DISALLOWED_TEXT, :status => 401 and return
+    end
     @upload = Upload.new(params[:upload])
 
     @upload.directory = session_directory()
@@ -88,6 +91,9 @@ class UploadsController < ApplicationController
   # PUT /uploads/1
   # PUT /uploads/1.xml
   def update
+    unless _allowed_to_edit
+      render :text => DISALLOWED_TEXT, :status => 401 and return
+    end
     @upload = Upload.find(params[:id])
 
     respond_to do |format|
@@ -119,6 +125,13 @@ class UploadsController < ApplicationController
   end
 
   private
+
+  DISALLOWED_TEXT = 'You must be signed in as dimes.'
+
+  def _allowed_to_edit
+    return current_user == User.first(:conditions => {'login' => 'dimes'})
+  end
+
   def session_directory
     session[controller_name] ? session[controller_name][:directory] || '/' : '/'
   end

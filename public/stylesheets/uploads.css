@@ -1,8 +1,35 @@
 .directory { font-weight: bold !important; text-decoration: underline !important; }
+.cwd {
+  border: 1px solid #CCEECC;
+  border-left: 0;
+  border-right: 0;
+  padding: 0.5em;
+  background: #CCFFCC;
+  font-size: 1.1em;
+}
+.cwd .dir {
+  font-weight: bold;
+}
+.parent_dir {
+  border: 1px solid #CCEECC;
+  border-left: 0;
+  border-right: 0;
+  padding: 0.5em;
+  background: #CCFFCC;
+  font-size: 1.1em;
+}
 .log_in_invite {
   border: 1px solid #EEEECC;
   border-left: 0;
   border-right: 0;
   padding: 0.5em;
   background: #FFFFCC;
+}
+table.files {
+  border: 1px solid #EEEEEE;
+  border-left: 0;
+  border-right: 0;
+}
+table.files tr.header {
+  font-size: 1.1em;
 }
