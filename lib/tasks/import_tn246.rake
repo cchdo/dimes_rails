@@ -42,9 +42,10 @@ namespace :db do
                         old_filepath = upload.public_filename
                         new_filepath = Upload.find(upload.id).public_filename
                         begin
+                                FileUtils.mkdir_p(File.dirname(new_filepath))
                                 FileUtils.mv(old_filepath, new_filepath)
-                        rescue
-                                $stderr.puts "#{old_filepath} not found. Not moved."
+                        rescue => e
+                                $stderr.puts "#{old_filepath} not moved. #{e}"
                         end
                 end
 
