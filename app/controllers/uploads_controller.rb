@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   layout 'standard'
 
-  before_filter :require_user, :except => [:index]
+  before_filter :require_user, :except => [:index, :download]
 
   # GET /uploads
   # GET /uploads.xml
@@ -121,7 +121,19 @@ class UploadsController < ApplicationController
 
   def download
       file = Upload.find(params[:upload_id])
-      send_file file.public_filename, :filename => file.filename
+      if file
+          if not file.public and not current_user
+              raise ActionController::RoutingError.new('Unauthorized')
+          else
+              begin
+                  send_file file.public_filename, :filename => file.filename
+              rescue
+                  raise ActionController::RoutingError.new('Not Found')
+              end
+          end
+      else
+          raise ActionController::RoutingError.new('Not Found')
+      end
   end
 
   private
