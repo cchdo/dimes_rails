@@ -1,9 +1,12 @@
 .DS_Store
-log/*.log
+*.swp
+*.swo
+passenger.log
+passenger.pid
+passenger.pid.lock
+log/*.log*
 tmp/**/*
 tmp/*
 config/database.yml
 db/*.sqlite3
-*.swp
-*.swo
 datafiles/*
