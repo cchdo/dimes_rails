@@ -130,7 +130,10 @@ class UploadsController < ApplicationController
                   filepath = file.public_filename
                   filepath = filepath.sub(RAILS_ROOT, '')
                   response.headers['X-Accel-Redirect'] = filepath
-                  response.headers['Content-Disposition'] = "attachment; filename=\"#{file.filename}\""
+                  response.headers['Content-Type'] = 
+                      file.content_type or 'application/octet-stream'
+                  response.headers['Content-Disposition'] =
+                      "inline; filename=\"#{file.filename}\""
                   render :nothing => true
               rescue => e
                   Rails.logger.error(e)
