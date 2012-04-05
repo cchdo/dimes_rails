@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   layout 'standard'
 
-  before_filter :require_user, :except => [:index, :download]
+  before_filter :require_user, :except => [:index, :download, :datafiles]
 
   # GET /uploads
   # GET /uploads.xml
@@ -137,6 +137,24 @@ class UploadsController < ApplicationController
                   render :nothing => true, :status => :bad_request
               end
           end
+      else
+          raise ActionController::RoutingError.new('Not Found')
+      end
+  end
+
+  def datafiles
+      path = File.join(params[:path])
+      dir, filename = File.split(path)
+      if dir == '.'
+          dir = File::SEPARATOR
+      else
+          dir = File.join(File::SEPARATOR, dir)
+      end
+
+      upload = Upload.first(
+          :conditions => {:directory => dir, :filename => filename})
+      if upload
+          redirect_to upload_get_path(upload.id)
       else
           raise ActionController::RoutingError.new('Not Found')
       end

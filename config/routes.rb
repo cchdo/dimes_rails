@@ -7,6 +7,8 @@ ActionController::Routing::Routes.draw do |map|
       uploads.get 'download', :on => :member, :controller => :uploads, :action => :download
   end
 
+  map.datafiles 'datafiles/*path', :controller => :uploads, :action => :datafiles
+
   map.resource :user_session
   map.login 'login', :controller => :user_sessions, :action => :new
   map.logout 'logout', :controller => :user_sessions, :action => :destroy
