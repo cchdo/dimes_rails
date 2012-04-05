@@ -70,7 +70,7 @@ class UploadsController < ApplicationController
   # POST /uploads.xml
   def create
     unless _allowed_to_edit
-      render :text => DISALLOWED_TEXT, :status => 401 and return
+      render :text => DISALLOWED_TEXT, :status => :unauthorized and return
     end
     @upload = Upload.new(params[:upload])
 
@@ -92,7 +92,7 @@ class UploadsController < ApplicationController
   # PUT /uploads/1.xml
   def update
     unless _allowed_to_edit
-      render :text => DISALLOWED_TEXT, :status => 401 and return
+      render :text => DISALLOWED_TEXT, :status => :unauthorized and return
     end
     @upload = Upload.find(params[:id])
 
@@ -123,12 +123,18 @@ class UploadsController < ApplicationController
       file = Upload.find(params[:upload_id])
       if file
           if not file.public and not current_user
-              raise ActionController::RoutingError.new('Unauthorized')
+              flash[:notice] = "Please sign in to view non-public files"
+              require_user
           else
               begin
-                  send_file file.public_filename, :filename => file.filename
-              rescue
-                  raise ActionController::RoutingError.new('Not Found')
+                  filepath = file.public_filename
+                  filepath = filepath.sub(RAILS_ROOT, '')
+                  response.headers['X-Accel-Redirect'] = filepath
+                  response.headers['Content-Disposition'] = "attachment; filename=\"#{file.filename}\""
+                  render :nothing => true
+              rescue => e
+                  Rails.logger.error(e)
+                  render :nothing => true, :status => :bad_request
               end
           end
       else
