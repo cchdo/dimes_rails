@@ -17,6 +17,11 @@ end
 <%- unless current_user %>
   <p class="log_in_invite"><%= link_to('Log in', login_path) %> to see private files.</p>
 <%- end %>
+<%- if current_user %>
+  <ul>
+    <li><a href="http://mmm.whoi.edu/mmm_data/dimes/">DIMES microstructure data</a></li>
+  </ul>
+<%- end %>
 <p class="cwd">Current directory: <span class="dir"><%=h curr_dir %></span></p>
 <form action="" method="GET">
   <p class="cwd">Go to directory: <input type="text" name="cd"></input><input type="submit" value="Go"></input></p>
