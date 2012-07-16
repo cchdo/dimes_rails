@@ -1,35 +1,40 @@
-.directory { font-weight: bold !important; text-decoration: underline !important; }
 .cwd {
-  border: 1px solid #CCEECC;
+  border: 1px solid #DDEEDD;
   border-left: 0;
   border-right: 0;
-  padding: 0.5em;
-  background: #CCFFCC;
-  font-size: 1.1em;
+  padding: 0 0.5em;
+  background: #EEFFEE;
+  font-size: 1em;
+  line-height: 0;
 }
 .cwd .dir {
   font-weight: bold;
 }
-.parent_dir {
-  border: 1px solid #CCEECC;
+.edit {
+  padding: 0.1em 0.5em;
+  border: 1px solid #EEDDCC;
   border-left: 0;
   border-right: 0;
-  padding: 0.5em;
-  background: #CCFFCC;
-  font-size: 1.1em;
+  background: #FFEEDD;
+  line-height: 0.5em;
 }
 .log_in_invite {
-  border: 1px solid #EEEECC;
+  border: 1px solid #EEEEDD;
   border-left: 0;
   border-right: 0;
   padding: 0.5em;
-  background: #FFFFCC;
+  background: #FFFFEE;
 }
-table.files {
-  border: 1px solid #EEEEEE;
-  border-left: 0;
-  border-right: 0;
+.files {
+  margin: 0.5em 0;
 }
-table.files tr.header {
-  font-size: 1.1em;
+.files table {
+  width: 100%;
+}
+.files table tr.header {
+  text-align: left;
+  font-size: 1.2em;
+}
+.files table tr.header th {
+  border-bottom: 1px solid #EEEEEE;
 }
