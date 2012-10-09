@@ -9,19 +9,20 @@ class UploadsController < ApplicationController
         unless params[:cd].blank?
             if params[:cd].first == '/'
                 set_session_dir(params[:cd])
-            elsif params[:cd] == 'up'
-                session_dir = session_directory()
-                unless session_dir == '/'
-                    set_session_dir(session_dir.split('/')[0..-2].join('/'))
-                end
             else
-                session_dir = session_directory()
-                if session_dir.last != '/'
-                    session_dir += '/'
+                if params[:cd] == 'up'
+                    session_dir = session_directory()
+                    unless session_dir == '/'
+                        set_session_dir(session_dir.split('/')[0..-2].join('/'))
+                    end
+                else
+                    set_session_dir(_child_abs_path(params[:cd]))
                 end
-                set_session_dir("#{session_dir}#{params[:cd]}")
+                redirect_to(uploads_path(:cd => session_directory())) && return
             end
             params[:cd] = ''
+        else
+            redirect_to(uploads_path(:cd => session_directory())) && return
         end
 
         publicness = ' AND `public`=1'
@@ -31,7 +32,8 @@ class UploadsController < ApplicationController
 
         @uploads = Upload.all(
             :conditions => [
-                '`directory` LIKE ?' + publicness, session_directory() + '%'],
+                '`directory` LIKE ? AND `deleted`=0' + publicness,
+                session_directory() + '%'],
             :order => :directory)
 
         respond_to do |format|
@@ -81,7 +83,7 @@ class UploadsController < ApplicationController
         respond_to do |format|
             if @upload.save
                 msg = 'Uploaded successfully.'
-                flash[:notice] = msg
+                flash.now[:notice] = msg
                 format.html { redirect_to(@upload, :notice => msg) }
                 format.xml  { render :xml => @upload, :status => :created, :location => @upload }
             else
@@ -102,7 +104,7 @@ class UploadsController < ApplicationController
         respond_to do |format|
             if @upload.update_attributes(params[:upload])
                 msg = 'File was successfully updated.'
-                flash[:notice] = msg
+                flash.now[:notice] = msg
                 format.html { redirect_to(@upload, :notice => msg) }
                 format.xml  { head :ok }
             else
@@ -114,21 +116,23 @@ class UploadsController < ApplicationController
 
     # DELETE /uploads/1
     # DELETE /uploads/1.xml
-    # def destroy
-    #   @upload = Upload.find(params[:id])
-    #   @upload.destroy
+    def destroy
+      @upload = Upload.find(params[:id])
+      @upload.deleted = 1
+      @upload.save
 
-    #   respond_to do |format|
-    #     format.html { redirect_to(uploads_url) }
-    #     format.xml  { head :ok }
-    #   end
-    # end
+      respond_to do |format|
+        format.html { redirect_to(uploads_url) }
+        format.xml  { head :ok }
+      end
+    end
 
+    # GET /uploads/1/download
     def download
-        file = Upload.find(params[:upload_id])
-        if file
+        file = Upload.find(params[:id])
+        if file and not file.deleted
             if not file.public and not current_user
-                flash[:notice] = "Please sign in to view non-public files"
+                flash.now[:notice] = "Please sign in to view non-public files"
                 require_user
             else
                 # Instruct nginx to send the file using X-Accel-Redirect.
@@ -151,6 +155,45 @@ class UploadsController < ApplicationController
         end
     end
 
+    def mvdir
+        @currdir = session_directory()
+        @child = params[:cd]
+
+        if params[:commit] == 'Rename'
+            if params[:name] =~ /[\/\.]/
+                flash.now[:notice] = "Illegal directory name"
+                render :layout => 'standard', :status => :bad_request
+                return
+            end
+
+            old_root = _child_abs_path(@child)
+
+            uploads = Upload.all(
+                :select => ['id', 'directory', 'filename', 'public'].join(','),
+                :conditions => ['directory LIKE ?', "#{old_root}%"])
+
+            @child = params[:name]
+            new_root = _child_abs_path(@child)
+
+            if Upload.exists?(['directory LIKE ?', "#{new_root}%"])
+                flash.now[:notice] = "Directory name already exists"
+                render :layout => 'standard', :status => :bad_request
+                return
+            end
+
+            ActiveRecord::Base.transaction do
+                for upload in uploads
+                    upload.directory = upload.directory.sub(old_root, new_root)
+                    upload.save(false)
+                end
+            end
+
+            flash[:notice] = "Successfully renamed directory #{old_root} to " + 
+                "#{new_root}"
+            redirect_to(uploads_path)
+        end
+    end
+
     def datafiles
         path = File.join(params[:path])
         dir, filename = File.split(path)
@@ -162,14 +205,22 @@ class UploadsController < ApplicationController
 
         upload = Upload.first(
             :conditions => {:directory => dir, :filename => filename})
-            if upload
-                redirect_to upload_get_path(upload.id)
-            else
-                raise ActionController::RoutingError.new('Not Found')
-            end
+        if upload
+            redirect_to upload_get_path(upload.id)
+        else
+            raise ActionController::RoutingError.new('Not Found')
+        end
     end
 
     private
+
+    def _child_abs_path(child)
+        session_dir = session_directory()
+        if session_dir.last != '/'
+            session_dir += '/'
+        end
+        "#{session_dir}#{child}"
+    end
 
     DISALLOWED_TEXT = 'You must be signed in as dimes.'
 

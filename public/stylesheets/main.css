@@ -11,6 +11,20 @@ img {
 	border-width: 1px;
 	vertical-align: baseline;
 }
+.flash {
+  padding: 0.5em;
+  margin: 0.5em;
+}
+.flash-notice {
+  color: #987;
+  border: 1px solid #EDC;
+  background-color: #FED;
+}
+.flash-info {
+  color: #789;
+  border: 1px solid #789;
+  background-color: #DEF;
+}
 .top_name {
 	height: 25px;
 	text-align: left;
@@ -122,7 +136,14 @@ hr {
 	margin-top: 3px;
 	margin-bottom: 10px;
 }
-table.files {
+.files table {
   width: 100%;
   text-align: left;
+  border-collapse: collapse;
+}
+.files table tr:hover {
+  background: #EEE;
+}
+.files table td {
+  padding: 0.35em;
 }

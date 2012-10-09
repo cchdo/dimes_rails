@@ -9,18 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100908192850) do
+ActiveRecord::Schema.define(:version => 20121009224842) do
 
   create_table "uploads", :force => true do |t|
     t.integer  "user_id"
     t.text     "description"
     t.boolean  "public",       :default => false, :null => false
     t.string   "directory",    :default => "/",   :null => false
-    t.integer  "size",                            :null => false
+    t.integer  "size"
     t.string   "filename",                        :null => false
-    t.string   "content_type",                    :null => false
+    t.string   "content_type"
     t.datetime "created_at"
+    t.boolean  "deleted",      :default => false
   end
+
+  add_index "uploads", ["directory"], :name => "directory"
 
   create_table "users", :force => true do |t|
     t.string "login",             :null => false

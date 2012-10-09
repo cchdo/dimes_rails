@@ -4,7 +4,7 @@
 <h1>File Listing</h1>
 
 <%- unless current_user %>
-  <p class="log_in_invite"><%= link_to('Log in', login_path) %> to see private files.</p>
+  <p class="log_in_invite"><%= link_to('Log in', login_path(:return_to => request.path)) %> to see private files.</p>
 <%- else %>
   <ul>
     <li><a href="http://mmm.whoi.edu/mmm_data/dimes/">DIMES microstructure data</a></li>
@@ -17,7 +17,7 @@
     <p>Go to directory: <input type="text" name="cd"></input><input type="submit" value="Go"></input></p>
   </form>
   <% if curr_dir != '/' %>
-    <p><%= link_to('&#8679; Parent directory', :cd => :up) %></p>
+    <p><%= link_to('&#8679; Parent directory', :cd => 'up') %></p>
   <% end -%>
 </div>
 <% if @uploads.blank? -%>
@@ -37,22 +37,29 @@
     <% @uploads.each do |upload| -%>
       <% if upload.directory == curr_dir -%>
         <tr>
-          <td><%= link_to(h(upload.filename), upload_get_path(upload)) %></td>
+          <td><%= link_to(h(upload.filename), download_upload_path(upload)) %></td>
           <td><%=h upload.description %></td>
           <td><%=h upload.size %></td>
           <td><%=h upload.content_type %></td>
           <td><%=h upload.created_at %></td>
           <%- if current_user %>
-            <td><%= link_to 'Edit', edit_upload_path(upload) %></td>
+            <td>
+              <%= link_to 'Edit', edit_upload_path(upload) %>
+              <%= link_to 'Delete', upload, :confirm => 'Are you sure?', :method => :delete %>
+            </td>
           <%- end %>
-          <%#td><%= link_to 'Destroy', upload, :confirm => 'Are you sure?', :method => :delete ></td%>
         </tr>
       <% else -%>
         <% child_dir = child(upload.directory) -%>
         <% unless shown.include?(child_dir) -%>
           <% shown << child_dir -%>
           <tr>
-            <td><%= link_to("&#9654; #{h(child_dir)}", {:cd => child_dir}, {:class => :directory}) %></td>
+            <td colspan="5">
+              <%= link_to("&#9654; #{h(child_dir)}", {:cd => child_dir}, {:class => :directory}) %>
+            </td>
+            <%- if current_user %>
+              <td><%= link_to 'Rename', mvdir_uploads_path(:cd => child_dir) %></td>
+            <%- end %>
           </tr>
         <% end -%>
       <% end -%>
@@ -69,15 +76,16 @@
     </p>
     <p>
       To update a file, please use the Edit link to the right.
+      Directories without files in them will not persist.
     </p>
     <% form_tag '', :method => 'GET' do %>
       <p>
         <%= label_tag 'Add directory'%>
-        <%= text_field_tag :cd%>
-        <%= submit_tag 'Go'%>
+        <%= text_field_tag :cd %>
+        <%= submit_tag 'Add'%>
       </p>
     <% end -%>
   </div>
 <%- else %>
-  <p class="log_in_invite"><%= link_to('Log in', login_path) %> to add files and directories.</p>
+  <p class="log_in_invite"><%= link_to('Log in', login_path(:return_to => request.path)) %> to add files and directories.</p>
 <%- end %>

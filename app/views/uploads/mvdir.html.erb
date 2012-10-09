@@ -1,0 +1,13 @@
+<h1>Rename directory</h1>
+
+<% form_tag do %>
+  <p>
+    <%= @currdir %>/<span class="child"><%= @child %></span> to 
+    <%= hidden_field_tag :cd, @child %>
+    <%= text_field_tag :name, @child %>
+    <%= submit_tag 'Rename' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', uploads_path %>
+
