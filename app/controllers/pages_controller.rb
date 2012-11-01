@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 
     def outreach_0
     end
+
+    def calendar
+    end
 end

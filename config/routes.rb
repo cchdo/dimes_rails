@@ -7,6 +7,8 @@ ActionController::Routing::Routes.draw do |map|
     :member => {:download => :get},
     :collection => {:mvdir => :get}
 
+  map.calendar 'calendar', :controller => :pages, :action => :calendar
+
   map.datafiles 'datafiles/*path', :controller => :uploads, :action => :datafiles
 
   map.resource :user_session
