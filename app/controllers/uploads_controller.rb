@@ -75,6 +75,13 @@ class UploadsController < ApplicationController
         unless _allowed_to_edit
             render :text => DISALLOWED_TEXT, :status => :unauthorized and return
         end
+
+        if params[:package]
+            package_upload()
+            redirect_to(uploads_path)
+            return
+        end
+
         @upload = Upload.new(params[:upload])
 
         @upload.directory = session_directory()
@@ -125,6 +132,35 @@ class UploadsController < ApplicationController
         format.html { redirect_to(uploads_url) }
         format.xml  { head :ok }
       end
+    end
+
+    # GET /uploads/download_dir
+    def download_dir
+        if not current_user
+            require_user && return
+        end
+        dir = params[:cd]
+        file_name = dir.gsub('/', '-') + '.zip'
+
+        uploads = Upload.all(
+            :select => ['id', 'directory', 'filename', 'public'].join(','),
+            :conditions => ['deleted = 0 AND directory LIKE ?', "#{dir}"])
+
+        t = Tempfile.new(file_name)
+        Zip::ZipOutputStream.open(t.path) do |z|
+            uploads.each do |up|
+                z.put_next_entry(up.filename)
+                begin
+                    z.print IO.read(up.public_filename)
+                rescue Errno::ENOENT
+                    z.print ''
+                end
+            end
+        end
+        send_file t.path, :type => 'application/zip',
+                          :disposition => 'attachment',
+                          :filename => file_name
+        t.close
     end
 
     # GET /uploads/1/download
@@ -236,5 +272,61 @@ class UploadsController < ApplicationController
         session[controller_name] = {} if session[controller_name].blank?
         value = '/' if value.blank?
         session[controller_name][:directory] = value
+    end
+
+    def guess_mime_type(basename)
+        Mime::Type.lookup_by_extension(
+            File.extname(basename).downcase.tr('.', '')
+        ) || 'application/octet-stream'
+    end
+
+    def package_upload
+        Rails.logger.debug('uploading package')
+
+        publicness = params[:upload][:public]
+        description = params[:upload][:description]
+        tempfile = params[:upload][:uploaded_data]
+
+        if tempfile.kind_of?(StringIO)
+            tmp = TempFile.new(tempfile.original_filename) do |f|
+                f.write(tempfile.to_s)
+            end
+            tempfile = tmp
+        end
+
+        skip_present = false
+        cwd = session_directory()
+
+        Zip::ZipFile.open(tempfile.path) do |zf|
+            zf.entries.each do |f|
+                next if f.name =~ /^__MACOSX\//
+                next if f.directory?
+                dirname, basename = File.split(f.name)
+                if dirname == '.'
+                    dir = cwd
+                else
+                    dir = File.join(cwd, dirname)
+                end
+                Rails.logger.debug("#{dir} \t #{basename}")
+
+                upload = Upload.first(:conditions => {
+                    :directory => dir, :filename => basename,
+                    :deleted => false})
+                if upload
+                    upload.deleted = true
+                    upload.save
+                end
+
+                upload = Upload.new()
+                upload.public = publicness
+                upload.directory = dir
+                upload.set_temp_data(f.get_raw_input_stream.read)
+                upload.content_type = guess_mime_type(basename)
+                upload.filename = basename
+                upload.user = current_user
+                upload.save
+            end
+        end
+        flash[:notice] = 'Package uploaded'
     end
 end

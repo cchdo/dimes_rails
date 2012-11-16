@@ -19,6 +19,9 @@
   <% if curr_dir != '/' %>
     <p><%= link_to('&#8679; Parent directory', :cd => 'up') %></p>
   <% end -%>
+  <%- if current_user %>
+    <p><%= link_to('Download all directory files as zip', download_dir_uploads_path(:cd => curr_dir)) %></p>
+  <%- end %>
 </div>
 <% if @uploads.blank? -%>
     <p>There are no uploaded files.</p>

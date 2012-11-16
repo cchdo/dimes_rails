@@ -5,7 +5,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :uploads,
     :member => {:download => :get},
-    :collection => {:mvdir => :get}
+    :collection => {
+        :mvdir => :get,
+        :download_dir => :get
+    }
 
   map.calendar 'calendar', :controller => :pages, :action => :calendar
 
