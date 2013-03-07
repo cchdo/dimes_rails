@@ -141,6 +141,10 @@ class UploadsController < ApplicationController
         end
         dir = params[:cd]
         file_name = dir.gsub('/', '-') + '.zip'
+        # Strip leading -
+        if file_name =~ /^-/
+            file_name = file_name.slice(1..-1)
+        end
 
         uploads = Upload.all(
             :select => ['id', 'directory', 'filename', 'public'].join(','),

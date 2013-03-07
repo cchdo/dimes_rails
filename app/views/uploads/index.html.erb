@@ -58,7 +58,7 @@
           <% shown << child_dir -%>
           <tr>
             <td colspan="5">
-              <%= link_to("&#9654; #{h(child_dir)}", {:cd => child_dir}, {:class => :directory}) %>
+              <%= link_to("&#9654; #{h(child_dir)}", {:cd => upload.directory}, {:class => :directory}) %>
             </td>
             <%- if current_user %>
               <td><%= link_to 'Rename', mvdir_uploads_path(:cd => child_dir) %></td>
