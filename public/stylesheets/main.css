@@ -147,3 +147,16 @@ hr {
 .files table td {
   padding: 0.35em;
 }
+
+.fieldwork td {
+  padding: 0 0.5em;
+}
+.fieldwork .name {
+  font-size: 1.3em;
+}
+.fieldwork .ship {
+  white-space: nowrap;
+}
+.fieldwork .location {
+  font-style: italic;
+}
