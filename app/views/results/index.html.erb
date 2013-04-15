@@ -13,7 +13,7 @@
 
 <h3>US 3 Cruise</h3>
 
-<p><%=link_to_remote "Photo", :update=>'results_content', :url=>{:action=>'us_3_photo'}%></p> 
+<p><%=link_to_remote "Photo", :update=>'results_content', :url=>result_body_path('us_3_photo')%></p> 
 
 <h3>UK2.5 Cruise</h3>
 
@@ -34,45 +34,45 @@ Follow the <a href="cruise3/US2-Path.kmz">cruise track</a> via <a href="http://e
 Sadly, Captain Philip Smith passed away on Tuesday, January 18.  The ship
 returned to Punta Arenas, arriving Friday January 22nd, and started out again
 January 25th.  See the 
-<%=link_to_remote "Seattle Times obituary", :update => 'results_content', :url => {:action => 'philip_smith_obituary'} %>.
+<%=link_to_remote "Seattle Times obituary", :update => 'results_content', :url => result_body_path('philip_smith_obituary') %>.
 (updated 28 January 2010).
 </p>
 
 <ul> 
-<li><%=link_to_remote "Progress report (25 January 2010)", :update=>'results_content', :url=>{:action=>'report_20100125'}%></li> 
-<li><%=link_to_remote "Who is on the ship? (26 January 2010)", :update=>'results_content', :url=>{:action=>'report_20100126'}%></li> 
-<li><%=link_to_remote "Progress report (4 February 2010)", :update=>'results_content', :url=>{:action=>'report_20100204'}%><br />
+<li><%=link_to_remote "Progress report (25 January 2010)", :update=>'results_content', :url=>result_body_path('report_20100125')%></li> 
+<li><%=link_to_remote "Who is on the ship? (26 January 2010)", :update=>'results_content', :url=>result_body_path('report_20100126')%></li> 
+<li><%=link_to_remote "Progress report (4 February 2010)", :update=>'results_content', :url=>result_body_path('report_20100204')%><br />
 	or <a href="cruise3/Update_04Feb10_all.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a></li>
-<li><%=link_to_remote "Progress report (18 February 2010)", :update=>'results_content', :url=>{:action=>'report_20100218'}%></li> 
-<li><%=link_to_remote "Final report (3 March 2010)", :update=>'results_content', :url=>{:action=>'report_20100303'}%><br>
+<li><%=link_to_remote "Progress report (18 February 2010)", :update=>'results_content', :url=>result_body_path('report_20100218')%></li> 
+<li><%=link_to_remote "Final report (3 March 2010)", :update=>'results_content', :url=>result_body_path('report_20100303')%><br>
 	or <a href="cruise3/update_03mar10_u.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a> </li> 
 </ul> 
 <h3>First UK Cruise</h3> 
 The first UK cruise left port 5 December 2009.  Here are their updates.
 <ul> 
 <li><a href="cruise2/jc41_outline.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> Cruise plan</a></li> 
-<li><%=link_to_remote "Progress report (6 December 2009)", :update=>'results_content', :url=>{:action=>'report_20091206'}%><br>
+<li><%=link_to_remote "Progress report (6 December 2009)", :update=>'results_content', :url=>result_body_path('report_20091206')%><br>
 	or <a href="cruise2/JC41_progress_6Dec09.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a></li>
-<li><%=link_to_remote "Progress report (11 December 2009)", :update=>'results_content', :url=>{:action=>'report_20091211'}%><br>
+<li><%=link_to_remote "Progress report (11 December 2009)", :update=>'results_content', :url=>result_body_path('report_20091211')%><br>
 	or <a href="cruise2/JC41_progress_11Dec09.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a></li> 
-<li><%=link_to_remote "Progress report (20 December 2009)", :update=>'results_content', :url=>{:action=>'report_20091220'}%><br>
+<li><%=link_to_remote "Progress report (20 December 2009)", :update=>'results_content', :url=>result_body_path('report_20091220')%><br>
 	or <a href="cruise2/JC41_progress_20Dec09.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a></li> 
 </ul> 
 <h3>First US Cruise</h3>
 The first US cruise left port on January 10 and returned February 24, 2009.  
 Here are the regular updates that were sent from the ship.<br> 
 <ul> 
-<li><%=link_to_remote "Introduction", :update=>'results_content', :url=>{:action=>'us_introduction'}%></li> 
-<li><%=link_to_remote "Who is on the ship?", :update=>'results_content', :url=>{:action=>'us_participants'}%></li> 
-<li><%=link_to_remote "Progress Report (15 January 2009)", :update=>'results_content', :url=>{:action=>'report_20090115'}%></li> 
-<li><%=link_to_remote "Progress Report (17 January 2009)", :update=>'results_content', :url=>{:action=>'report_20090117'}%></li> 
-<li><%=link_to_remote "Progress Report (20 January 2009)", :update=>'results_content', :url=>{:action=>'report_20090120'}%></li> 
-<li><%=link_to_remote "Progress Report (22 January 2009)", :update=>'results_content', :url=>{:action=>'report_20090122'}%></li> 
-<li><%=link_to_remote "Progress Report (29 January 2009)", :update=>'results_content', :url=>{:action=>'report_20090129'}%></li> 
-<li><%=link_to_remote "Progress Report (1 February 2009)", :update=>'results_content', :url=>{:action=>'report_20090201'}%></li> 
-<li><%=link_to_remote "Progress Report (4 February 2009)", :update=>'results_content', :url=>{:action=>'report_20090204'}%></li> 
-<li><%=link_to_remote "Progress Report (6 February 2009)", :update=>'results_content', :url=>{:action=>'report_20090206'}%></li> 
-<li><%=link_to_remote "Chief Scientist Jim Ledwell's daily journal (updated as of 19 February 2009)", :update=>'results_content', :url=>{:action=>'report_20090219'}%></li> 
+<li><%=link_to_remote "Introduction", :update=>'results_content', :url=>result_body_path('us_introduction')%></li> 
+<li><%=link_to_remote "Who is on the ship?", :update=>'results_content', :url=>result_body_path('us_participants')%></li> 
+<li><%=link_to_remote "Progress Report (15 January 2009)", :update=>'results_content', :url=>result_body_path('report_20090115')%></li> 
+<li><%=link_to_remote "Progress Report (17 January 2009)", :update=>'results_content', :url=>result_body_path('report_20090117')%></li> 
+<li><%=link_to_remote "Progress Report (20 January 2009)", :update=>'results_content', :url=>result_body_path('report_20090120')%></li> 
+<li><%=link_to_remote "Progress Report (22 January 2009)", :update=>'results_content', :url=>result_body_path('report_20090122')%></li> 
+<li><%=link_to_remote "Progress Report (29 January 2009)", :update=>'results_content', :url=>result_body_path('report_20090129')%></li> 
+<li><%=link_to_remote "Progress Report (1 February 2009)", :update=>'results_content', :url=>result_body_path('report_20090201')%></li> 
+<li><%=link_to_remote "Progress Report (4 February 2009)", :update=>'results_content', :url=>result_body_path('report_20090204')%></li> 
+<li><%=link_to_remote "Progress Report (6 February 2009)", :update=>'results_content', :url=>result_body_path('report_20090206')%></li> 
+<li><%=link_to_remote "Chief Scientist Jim Ledwell's daily journal (updated as of 19 February 2009)", :update=>'results_content', :url=>result_body_path('report_20090219')%></li> 
 <li><a href="documents/summary_20090222.ppt">End of cruise preliminary summary (23 February 2009)</a> (Read the notes for details; a more complete summary should
 follow.)</a></li> 
 </div>
