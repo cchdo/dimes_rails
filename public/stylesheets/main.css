@@ -160,3 +160,16 @@ hr {
 .fieldwork .location {
   font-style: italic;
 }
+.press .title {
+  font-size: 1.3em;
+}
+.press li {
+  color: #8E8E8E;
+}
+.press .author {
+  font-size: 1.2em;
+  color: #6E6E6E;
+}
+.press .publisher {
+  font-size: 0.95em;
+}

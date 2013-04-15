@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.publications 'publications', :controller => :pages, :action => :publications
   map.people       'people',       :controller => :pages, :action => :people
   map.calendar     'calendar',     :controller => :pages, :action => :calendar
+  map.press        'press',        :controller => :pages, :action => :press
   map.outreach_0   'outreach/DIMES_article_CB_30_June', :controller => :pages, :action => :outreach_0
 
   map.result_body 'results/body/:slug', :controller => :results, :action => :body
@@ -21,6 +22,8 @@ ActionController::Routing::Routes.draw do |map|
         :mvdir => :get,
         :download_dir => :get
     }
+
+  map.datafiles 'datafiles/*path', :controller => :uploads, :action => :datafiles
 
   map.resource :user_session
   map.login 'login', :controller => :user_sessions, :action => :new
