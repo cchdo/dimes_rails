@@ -3,6 +3,8 @@
 <% end -%>
 <h1>File Listing</h1>
 
+<div>
+  <p><%= link_to('Data policy', '/data_policy') %></p>
 <%- unless current_user %>
   <p class="log_in_invite"><%= link_to('Log in', login_path(:return_to => request.path)) %> to see private files.</p>
 <%- else %>
@@ -10,6 +12,7 @@
     <li><a href="http://mmm.whoi.edu/mmm_data/dimes/">DIMES microstructure data</a></li>
   </ul>
 <%- end %>
+</div>
 
 <div class="cwd">
   <p>Current directory: <span class="dir"><%=h curr_dir %></span></p>

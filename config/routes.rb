@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.people       'people',       :controller => :pages, :action => :people
   map.calendar     'calendar',     :controller => :pages, :action => :calendar
   map.press        'press',        :controller => :pages, :action => :press
+  map.data_policy  'data_policy',  :controller => :pages, :action => :data_policy
   map.outreach_0   'outreach/DIMES_article_CB_30_June', :controller => :pages, :action => :outreach_0
 
   map.result_body 'results/body/:slug', :controller => :results, :action => :body

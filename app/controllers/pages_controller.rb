@@ -24,4 +24,7 @@ class PagesController < ApplicationController
 
     def press
     end
+
+    def data_policy
+    end
 end
