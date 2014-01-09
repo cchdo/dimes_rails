@@ -27,4 +27,8 @@ class PagesController < ApplicationController
 
     def data_policy
     end
+
+    def results
+        redirect_to fieldwork_path, :status => 301
+    end
 end
