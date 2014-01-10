@@ -13,6 +13,9 @@ class PagesController < ApplicationController
     def fieldwork
     end
 
+    def cruise_reports
+    end
+
     def publications
     end
 

@@ -4,15 +4,16 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => :pages, :action => :home
 
-  map.components   'components',   :controller => :pages, :action => :components
-  map.fieldwork    'fieldwork',    :controller => :fieldwork, :action => :index
-  map.results      'results',      :controller => :pages, :action => :results
-  map.publications 'publications', :controller => :pages, :action => :publications
-  map.people       'people',       :controller => :pages, :action => :people
-  map.calendar     'calendar',     :controller => :pages, :action => :calendar
-  map.press        'press',        :controller => :pages, :action => :press
-  map.data_policy  'data_policy',  :controller => :pages, :action => :data_policy
-  map.outreach_0   'outreach/DIMES_article_CB_30_June', :controller => :pages, :action => :outreach_0
+  map.components     'components',     :controller => :pages, :action => :components
+  map.fieldwork      'fieldwork',      :controller => :fieldwork, :action => :index
+  map.results        'results',        :controller => :pages, :action => :results
+  map.publications   'publications',   :controller => :pages, :action => :publications
+  map.cruise_reports 'cruise_reports', :controller => :pages, :action => :cruise_reports
+  map.people         'people',         :controller => :pages, :action => :people
+  map.calendar       'calendar',       :controller => :pages, :action => :calendar
+  map.press          'press',          :controller => :pages, :action => :press
+  map.data_policy    'data_policy',    :controller => :pages, :action => :data_policy
+  map.outreach_0     'outreach/DIMES_article_CB_30_June', :controller => :pages, :action => :outreach_0
 
   map.result_body 'results/body/:slug', :controller => :fieldwork, :action => :body
 
