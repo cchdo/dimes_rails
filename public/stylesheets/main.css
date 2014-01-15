@@ -173,3 +173,12 @@ hr {
 .press .publisher {
   font-size: 0.95em;
 }
+
+ul.publications li {
+  margin: 0.8em auto;
+  line-height: 1.2em;
+}
+ul.publications .journal,
+ul.publications .volume {
+  font-style: italic;
+}
