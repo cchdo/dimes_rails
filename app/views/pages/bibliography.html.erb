@@ -1,0 +1,23 @@
+<%- content_for :head do %>
+<link href="/zotero" stype="application/json" rel="exhibit/data">
+<script src="http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js" type="text/javascript"></script>
+<%- end %>
+<h1>Publications from DIMES</h1>
+<hr>
+<h2>Published</h2>
+
+<div id="bibliography" class="spied">
+</div>
+
+<div ex:role="viewPanel">
+  <div ex:role="view" ex:orders=".year, .authors" ex:directions="descending, ascending"></div>
+  <div ex:role="lens" class="bibliography">
+    <div ex:content=".label" class="title"></div>
+    <div class="biblio_content">
+      <div ex:content=".authors" class="authors"></div>
+      <div ex:content=".uri" class="uri"></div>
+      <div ex:content=".publisher" class="publisher"></div><span class="parenthesis">(</span>
+      <span ex:content=".year" class="year"></span><span class="parenthesis">)</span>
+    </div>
+  </div>
+</div>

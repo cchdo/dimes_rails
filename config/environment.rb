@@ -18,6 +18,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic", :version => '2.1.6'
   config.gem "mysql"
   config.gem "rubyzip", :lib => 'zip/zip'
+  config.gem "nokogiri", :version => '1.5.10'
+  config.gem "rzotero"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

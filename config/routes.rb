@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.fieldwork      'fieldwork',      :controller => :fieldwork, :action => :index
   map.results        'results',        :controller => :pages, :action => :results
   map.publications   'publications',   :controller => :pages, :action => :publications
+  map.bibliography   'bibliography',   :controller => :pages, :action => :bibliography
+  map.zotero         'zotero',         :controller => :pages, :action => :zotero
   map.cruise_reports 'cruise_reports', :controller => :pages, :action => :cruise_reports
   map.people         'people',         :controller => :pages, :action => :people
   map.calendar       'calendar',       :controller => :pages, :action => :calendar
