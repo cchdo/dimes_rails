@@ -27,6 +27,8 @@ class PagesController < ApplicationController
         unless File.directory?(venvdir)
             `virtualenv "#{venvdir}"`
             `#{venvdir}/bin/pip install pyzotero`
+            # In case python<2.7
+            `#{venvdir}/bin/pip install ordereddict`
         end
         python = "#{venvdir}/bin/python"
         script = Rails.root.join('app', 'controllers', 'zotero.py')
