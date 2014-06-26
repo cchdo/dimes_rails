@@ -8,9 +8,11 @@ module UploadsHelper
     end
 
     def child(p)
-        curr = curr_dir.split('/')
-        curr = [''] if curr.empty?
-        path = p.split('/')
-        (path - curr).first
+        pwd = curr_dir()
+        relpath = p
+        if pwd != '/'
+            relpath = p.sub(pwd, '')
+        end
+        relpath.split('/')[1]
     end
 end
