@@ -324,7 +324,7 @@ class UploadsController < ApplicationController
                 upload = Upload.new()
                 upload.public = publicness
                 upload.directory = dir
-                upload.set_temp_data(f.get_raw_input_stream.read)
+                upload.set_temp_data(f.get_input_stream.read)
                 upload.content_type = guess_mime_type(basename)
                 upload.filename = basename
                 upload.user = current_user
