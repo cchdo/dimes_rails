@@ -26,6 +26,9 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
         return false
       end
+      if current_user.login != 'dimes'
+        return false
+      end
     end
 
     def require_no_user
