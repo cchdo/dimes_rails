@@ -1,3 +1,25 @@
+# Monkey patch ZipOutputStream's put_next_entry because of stupid.
+class Zip::ZipOutputStream
+#    def put_next_entry(entry_name, comment = nil, extra = nil,
+#                             compression_method = Entry::DEFLATED, level =
+#                             Zip.default_compression)
+#
+#      raise Error, "zip stream is closed" if @closed
+#      if entry_name.kind_of?(Entry)
+#        new_entry = entry_name
+#      else
+#        new_entry = Entry.new(@file_name, entry_name.to_s)
+#      end
+#      new_entry.comment = comment unless comment.nil?
+#      unless extra.nil?
+#        new_entry.extra = ExtraField === extra ? extra : ExtraField.new(extra.to_s)
+#      end
+#      new_entry.compression_method = compression_method unless compression_method.nil?
+#      init_next_entry(new_entry, level)
+#      @current_entry = new_entry
+#    end
+end
+
 class UploadsController < ApplicationController
     layout 'standard'
 
@@ -147,13 +169,22 @@ class UploadsController < ApplicationController
         end
 
         uploads = Upload.all(
-            :select => ['id', 'directory', 'filename', 'public'].join(','),
+            :select => ['id', 'directory', 'filename', 'public',
+                        'created_at'].join(','),
             :conditions => ['deleted = 0 AND directory LIKE ?', "#{dir}"])
 
         t = Tempfile.new(file_name)
         Zip::ZipOutputStream.open(t.path) do |z|
             uploads.each do |up|
-                z.put_next_entry(up.filename)
+                # rubyzip some time before 0.9.9 does not correctly use the
+                # supplied ZipEntry
+                # See this issue for problems with DOSTime
+                # https://github.com/travisjeffery/timecop/issues/25
+                ctime = up.created_at
+                zentry = Zip::ZipEntry.new(
+                    "", up.filename, "", "", 0, 0, Zip::ZipEntry::DEFLATED, 0,
+                    Zip::DOSTime.at(ctime.to_f))
+                entry = z.put_next_entry(zentry)
                 begin
                     z.print IO.read(up.public_filename)
                 rescue Errno::ENOENT
