@@ -6,9 +6,7 @@ namespace :db do
         end
 
         directories = [
-            "/DIMES meeting, November 2013/presentations",
-            "/DIMES meeting, November 2013/presentations/Dhruv",
-            "/DIMES meeting, November 2013/presentations/dimes_2013",
+            "/RAFOS/netCDF_format",
         ]
 
         uploads = Upload.find(:all, :conditions => ["directory IN (?)", directories])

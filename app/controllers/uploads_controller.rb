@@ -181,9 +181,11 @@ class UploadsController < ApplicationController
                 # See this issue for problems with DOSTime
                 # https://github.com/travisjeffery/timecop/issues/25
                 ctime = up.created_at
+                cdostime = Zip::DOSTime.at(ctime.to_f) + Time.zone_offset('UTC')
+                puts cdostime.inspect
                 zentry = Zip::ZipEntry.new(
                     "", up.filename, "", "", 0, 0, Zip::ZipEntry::DEFLATED, 0,
-                    Zip::DOSTime.at(ctime.to_f))
+                    cdostime)
                 entry = z.put_next_entry(zentry)
                 begin
                     z.print IO.read(up.public_filename)
