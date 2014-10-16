@@ -38,12 +38,17 @@
     <td class="other">Scotia Sea survey (boundaries).</td>
   </tr>
   <tr class="cruise">
+    <td class="name">US3</td>
+    <td class="ship"></td>
+    <td class="time"></td>
+    <td class="other"></td>
+  </tr>
+  <tr class="cruise">
     <td class="name">UK2.5</td>
     <td class="ship">James Clark Ross</td>
     <td class="time">April 2011</td>
     <td class="other">
-      <%= link_to('Cruise page', 'http://seahunt.ucsd.edu/cruises/74') %>.
-      <%= link_to('Blog post', 'http://blog.decc.gov.uk?p=596') %> with a
+      <%= link_to('Blog post', 'http://dimes-uk.blogspot.com/2011/05/dimes-reaches-heart-of-government.html') %> with a
       nice YouTube video from the deck of the ship.
     </td>
   </tr>
@@ -56,13 +61,25 @@
       <p><a href="http://dimesuk3.blogspot.com/">Blog of UK3 cruise by Katy Sheen and Alex Brearley.</a></p></td>
   </tr>
   <tr class="cruise">
+    <td class="name">US4</td>
+    <td class="ship"></td>
+    <td class="time"></td>
+    <td class="other"></td>
+  </tr>
+  <tr class="cruise">
     <td class="name">UK4</td>
     <td class="ship">James Clark Ross</td>
     <td class="time">March 2013 to April 2013.</td>
     <td class="other"><a href="//dimesuk4.blogspot.co.uk/">Blog by Jan Zika</a></td>
   </tr>
   <tr class="cruise">
-    <td class="name">UK 2014</td>
+    <td class="name">US5</td>
+    <td class="ship"></td>
+    <td class="time"></td>
+    <td class="other"></td>
+  </tr>
+  <tr class="cruise">
+    <td class="name">UK5</td>
     <td class="ship">RRS James Cook</td>
     <td class="time"></td>
     <td class="other"><a href="//www.adropinthesouthernocean.blogspot.co.uk/">Blog by Katy Sheen and Siobhan Moran</a></td>
@@ -77,26 +94,22 @@
 
 <p></p>
 
-<h3>UK 2014 Cruise</h3>
+<h3>UK5 Cruise</h3>
 
 <p><%=link_to_remote "A Drop in the Sea film, DIMES 2014", :update=>'results_content', :url=>result_body_path('uk_2014')%></p> 
 
-<h3>US 3 Cruise</h3>
+<h3>US3 Cruise</h3>
 
 <p><%=link_to_remote "Photo", :update=>'results_content', :url=>result_body_path('us_3_photo')%></p> 
 
 <h3>UK2.5 Cruise</h3>
 
 <p>The UK2.5 cruise left port 10 April 2011 aboard the James Clark Ross.
-More information about the cruise can be found
-<%= link_to('here', 'http://seahunt.ucsd.edu/cruises/74') %> while the
-<%= link_to('underway blog', 'http://dimes-uk.blogspot.com') %> provides more in
-case you're also interested in the real-time progress.
-<%= link_to('Here', 'http://blog.decc.gov.uk?p=596') %> is a blog post with a
+The <%= link_to('underway blog', 'http://dimes-uk.blogspot.com') %> provides a
 nice YouTube video from the deck of the ship.</p>
 <p><%= link_to('UK2.5 Cruise report', 'documents/JC054 DIMES UK2 CRUISE REPORT.pdf') %></p>
 
-<h3>Second US Cruise</h3>
+<h3>US2 Cruise</h3>
 
 The second US cruise left port 15 January 2010 aboard the Thompson.
 Follow the <a href="cruise3/US2-Path.kmz">cruise track</a> via <a href="http://earth.google.com/">Google Earth</a> or take a look at the <a href="cruise3/DIMES_US2_3_01_2010.jpg">map</a>.
@@ -117,7 +130,7 @@ January 25th.  See the
 <li><%=link_to_remote "Final report (3 March 2010)", :update=>'results_content', :url=>result_body_path('report_20100303')%><br>
 	or <a href="cruise3/update_03mar10_u.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a> </li> 
 </ul> 
-<h3>First UK Cruise</h3> 
+<h3>UK1 Cruise</h3> 
 The first UK cruise left port 5 December 2009.  Here are their updates.
 <ul> 
 <li><a href="cruise2/jc41_outline.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> Cruise plan</a></li> 
@@ -128,7 +141,7 @@ The first UK cruise left port 5 December 2009.  Here are their updates.
 <li><%=link_to_remote "Progress report (20 December 2009)", :update=>'results_content', :url=>result_body_path('report_20091220')%><br>
 	or <a href="cruise2/JC41_progress_20Dec09.pdf"><%=image_tag 'pdf.jpg', :height=>'13'%> pdf version</a></li> 
 </ul> 
-<h3>First US Cruise</h3>
+<h3>US1 Cruise</h3>
 The first US cruise left port on January 10 and returned February 24, 2009.  
 Here are the regular updates that were sent from the ship.<br> 
 <ul> 
